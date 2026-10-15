@@ -127,6 +127,7 @@ python tools/smoke_test.py          # checks the skill files, scripts compile, a
 python tools/package_skill.py       # dist/blender-studio.zip
 python tools/build_site.py          # _site/, then: python -m http.server -d _site 8000
 python examples/art/make_art.py     # redraws the sample artwork (needs Pillow)
+python tools/make_social_card.py    # site/social-card.png (needs Chrome or Edge)
 ```
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`docs/architecture.md`](docs/architecture.md).
