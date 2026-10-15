@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>blender-studio: build 3D products in Blender with your AI agent</title>
+<meta name="description" content="An Agent Skill that drives Blender through MCP. Bring artwork, sizes and a description; get back a 3D model, renders, a GIF or an interactive page.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="blender-studio">
+<meta property="og:description" content="Acrylic keychains, vinyl figurines, merch mockups, exploded views and interactive 3D pages, built in Blender by your AI agent.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://shadowtor.github.io/blender-studio/examples/vinyl-figurine/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js" integrity="sha256-d07doh4b4qCTTkYMpZQ68f4/iNoTCp+YvWqdYRV2ys8=" crossorigin="anonymous"></script>
+<style>
+:root{--bg:#f3f1ee;--ink:#1a1714;--mute:#5a534c;--accent:#c2410c;--card:#fff;--line:rgba(26,23,20,.16);--stage:#e8ecf8}
+@media (prefers-color-scheme:dark){:root{--bg:#16130f;--ink:#f3f1ee;--mute:#b3aaa0;--accent:#fb923c;--card:#211d18;--line:rgba(243,241,238,.18);--stage:#e8ecf8}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.55 "Segoe UI",system-ui,-apple-system,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+header nav a{margin-left:18px;font-weight:500;text-decoration:none}
+.hero{padding:40px 0 24px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
+h2{font-size:1.7rem;letter-spacing:-.01em;margin:0 0 12px}
+h3{margin:0 0 6px;font-size:1.2rem}
+.lead{color:var(--mute);font-size:1.2rem;margin:0 0 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;font-weight:600;text-decoration:none;margin:0 10px 10px 0}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);padding:8px 16px}
+.stage{background:var(--stage);border:1px solid var(--line);margin:0}
+.stage img,.stage model-viewer{display:block;width:100%;height:auto}
+.stage model-viewer{height:380px;--poster-color:transparent}
+.stage figcaption{background:var(--card);padding:8px 12px;font-size:.88rem;color:var(--mute);border-top:1px solid var(--line)}
+section{padding:36px 0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);padding:16px}
+.card p{margin:0;color:var(--mute);font-size:.98rem}
+ol.steps{padding-left:1.2em}
+ol.steps li{margin:8px 0}
+pre{background:var(--card);border:1px solid var(--line);padding:14px;overflow-x:auto;font-size:.9rem;line-height:1.45}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:1rem;margin:8px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.tag{font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+footer{padding:36px 0 60px;color:var(--mute);font-size:.95rem}
+@media (max-width:820px){.hero,.grid,.two{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><span>blender-studio</span><nav><a href="#ask">What to ask for</a><a href="#examples">Examples</a><a href="#install">Install</a><a href="https://github.com/shadowtor/blender-studio">GitHub</a></nav></header>
+
+<div class="hero">
+<div>
+<h1>Describe the product. Get the model, the render and the GIF.</h1>
+<p class="lead">An Agent Skill that drives Blender through MCP. You bring artwork, sizes and a description. It builds the 3D model, looks at its own renders, and hands back a file, a still, an animation or an interactive page.</p>
+<a class="btn" href="#install">Install</a><a class="btn alt" href="https://github.com/shadowtor/blender-studio">View source</a>
+</div>
+<figure class="stage"><img src="examples/vinyl-figurine/turntable.gif" alt="A vinyl cat figurine turning on a base" width="440" height="440"><figcaption>A vinyl figurine on a turntable. Built and rendered by the skill in Blender 5.2.</figcaption></figure>
+</div>
+
+<section id="ask">
+<h2>Say what you want out</h2>
+<p class="lead">The skill asks first, because the finish depends on the deliverable.</p>
+<div class="grid">
+<div class="card"><h3>A model</h3><p>GLB for web and AR, STL for printing, OBJ, FBX or USD for other tools, and the .blend.</p></div>
+<div class="card"><h3>A render</h3><p>A still on a backdrop or with a transparent background, at the size your page needs.</p></div>
+<div class="card"><h3>An animation</h3><p>Exploded view, turntable, or a process clip such as a printer making a part. MP4 or GIF.</p></div>
+<div class="card"><h3>A web page</h3><p>The GLB in an orbit-and-zoom viewer you can drop into a campaign page.</p></div>
+</div>
+<p>It works from what you give it: a PNG logo, a description, reference images, real sizes in millimetres. Products it has recipes for: acrylic keychains and other die-cut merch, vinyl figurines, apparel and merch mockups, exploded views, process simulations.</p>
+</section>
+
+<section id="examples">
+<h2>Two examples</h2>
+<p class="lead">Both use the same sample artwork, a cat called Mochi. Drag the models to turn them.</p>
+
+<h3>Acrylic keychain from a PNG</h3>
+<p>The skill traces the artwork's outline, adds a 2.5 mm acrylic border and a keyring tab, then stacks two 3 mm clear layers around a printed sheet and hangs a chrome split ring through the hole.</p>
+<div class="two">
+<figure class="stage"><model-viewer src="examples/acrylic-keychain/keychain.glb" poster="examples/acrylic-keychain/hero.png" alt="Interactive 3D acrylic keychain" camera-controls touch-action="pan-y" auto-rotate shadow-intensity="1" environment-image="neutral" camera-orbit="-20deg 80deg auto" reveal="auto" loading="lazy"></model-viewer><figcaption>Interactive, straight from the exported GLB.</figcaption></figure>
+<figure class="stage"><img src="examples/acrylic-keychain/exploded.gif" alt="The keychain layers separating and closing again" width="480" height="480" loading="lazy"><figcaption>Exploded view, rendered in Cycles.</figcaption></figure>
+</div>
+<table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>Parts</td><td>Back acrylic, printed sheet, front acrylic, split ring. 4 objects</td></tr>
+<tr><td>Size</td><td>51.0 x 51.7 x 3.0 mm per acrylic layer, art 55 mm wide, 0 open edges</td></tr>
+<tr><td>Files</td><td><code>keychain.glb</code>, <code>keychain.blend</code>, <code>exploded.gif</code>, <code>exploded.mp4</code>, <code>hero.png</code></td></tr>
+<tr><td>Not proven</td><td>Real acrylic and print colours. The render is a simulation, so ask the manufacturer for a proof before the campaign goes live</td></tr>
+</table>
+<p><a href="https://github.com/shadowtor/blender-studio/tree/main/examples/acrylic-keychain">Build script and files</a></p>
+
+<h3>Vinyl figurine with a printed face</h3>
+<p>Blocked out from spheres and cones, glossy vinyl material with a clear coat, the face artwork projected onto the head, then a full turn under fixed lights.</p>
+<div class="two">
+<figure class="stage"><model-viewer src="examples/vinyl-figurine/figurine.glb" poster="examples/vinyl-figurine/hero.png" alt="Interactive 3D vinyl figurine" camera-controls touch-action="pan-y" shadow-intensity="1" environment-image="neutral" camera-orbit="-15deg 80deg auto" reveal="auto" loading="lazy"></model-viewer><figcaption>Interactive GLB, about 0.5 MB.</figcaption></figure>
+<figure class="stage"><img src="examples/vinyl-figurine/hero.png" alt="Render of the vinyl cat figurine" width="1080" height="1080" loading="lazy"><figcaption>Still render, Cycles, 1080 x 1080.</figcaption></figure>
+</div>
+<p><a href="https://github.com/shadowtor/blender-studio/tree/main/examples/vinyl-figurine">Build script and files</a></p>
+</section>
+
+<section id="how">
+<h2>How a session goes</h2>
+<ol class="steps">
+<li><strong>Connect.</strong> The skill checks the Blender add-on. It never wipes a scene that holds your work and never saves over your file.</li>
+<li><strong>Ask.</strong> You pick the deliverable and the product, and share artwork and sizes. Anything missing becomes a named parameter with a stated assumption.</li>
+<li><strong>Build.</strong> Small scripts with sizes in millimetres at the top, so one changed number rebuilds the model.</li>
+<li><strong>Look.</strong> A render after each step, read by the agent, not just numbers.</li>
+<li><strong>Export.</strong> Long renders run in a background Blender so yours stays usable. GIF and MP4 go through ffmpeg.</li>
+<li><strong>Hand over.</strong> Files, parameters, assumptions, and what has not been proven.</li>
+</ol>
+<p>Untested so far: apparel mockups on garments and the printer process animation have helpers and recipes but no shipped example yet.</p>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<p>You need <a href="https://github.com/ahujasid/blender-mcp">MCP for Blender</a> set up (Blender 3.0 or newer, the add-on enabled and its server started), Python 3.8+, and an agent that reads skills folders. ffmpeg is only needed for GIF and MP4.</p>
+<pre>git clone https://github.com/shadowtor/blender-studio.git
+cd blender-studio
+python tools/install.py --claude --codex     # or --gemini, or --rules for Cursor and Copilot
+python skills/blender-studio/scripts/check_setup.py</pre>
+<p>Or in Claude Code: <code>/plugin marketplace add shadowtor/blender-studio</code> then <code>/plugin install blender-studio@blender-studio</code>. Start a new session, then ask for something to build.</p>
+</section>
+
+<footer>MIT licence. Not affiliated with the Blender Foundation. Blender is a trademark of the Blender Foundation. The skill sends Python to your own Blender session: save your work before you start.</footer>
+</div>
+</body>
+</html>

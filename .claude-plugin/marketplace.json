@@ -1,0 +1,21 @@
+{
+  "name": "blender-studio",
+  "owner": {
+    "name": "Shadowtor",
+    "url": "https://github.com/shadowtor"
+  },
+  "metadata": {
+    "description": "Build 3D products, mockups and animations in Blender with your AI agent.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "blender-studio",
+      "source": "./",
+      "description": "Models, renders, animations and web viewers in Blender through the MCP for Blender add-on, for acrylic merch, vinyl figurines, apparel mockups and exploded views.",
+      "version": "1.0.0",
+      "category": "design",
+      "keywords": ["blender", "3d", "mockups", "render", "animation"]
+    }
+  ]
+}

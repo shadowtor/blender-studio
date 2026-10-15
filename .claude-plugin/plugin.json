@@ -1,0 +1,13 @@
+{
+  "name": "blender-studio",
+  "description": "Build 3D products, mockups and animations in Blender through the MCP for Blender add-on: acrylic keychains from your artwork, vinyl figurines, apparel and merch mockups, exploded views, process animations and interactive 3D web pages.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Shadowtor",
+    "url": "https://github.com/shadowtor"
+  },
+  "homepage": "https://github.com/shadowtor/blender-studio",
+  "repository": "https://github.com/shadowtor/blender-studio",
+  "license": "MIT",
+  "keywords": ["blender", "3d", "mcp", "mockup", "render", "animation", "merch", "acrylic", "glb"]
+}
